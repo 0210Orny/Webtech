@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar, .main-content, .advertisement {
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f0f8ff;
+        }
+
+        .main-content {
+            width: 60%;
+            background-color: #fafad2;
+        }
+
+        .advertisement {
+            width: 20%;
+            background-color: #ffe4e1;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <p>World News</p>
+            <p>Technology</p>
+            <p>Sports</p>
+            <p>Entertainment</p>
+        </div>
+        <div class="main-content">
+            <h2>Main Articles</h2>
+            <p>Today the city council approved new regulations for public transport improvements.</p>
+            <p>The technology sector shows significant growth this quarter according to recent reports.</p>
+            <p>Local sports teams are preparing for upcoming championships next month.</p>
+        </div>
+        <div class="advertisement">
+            <h2>Advertisements</h2>
+            <p>Sign up today for exclusive offers and discounts.</p>
+            <p>New products available now in all stores nationwide.</p>
+        </div>
+    </div>
+</body>
+</html>

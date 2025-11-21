@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admission Form</title>
+</head>
+<body>
+
+    <h1>University Admission Form</h1>
+
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label>Full Name: <input type="text" name="fullname" required maxlength="50"><br><br> </label>
+            <label>Father's Name: <input type="text" name="fathername" required maxlength="50"><br><br> </label>
+            <label>Mother's Name: <input type="text" name="mothername" required maxlength="50"><br><br> </label>
+            <label>Email Address: <input type="email" name="email" required><br><br> </label>
+            <label>Date of Birth: <input type="date" name="dob" required><br><br> </label>
+            <label>Gender:</label><br><br>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </fieldset>
+        <fieldset>
+            <legend>Academic Information</legend>
+            <label>SSC GPA: <input type="text" name="ssc_gpa" required maxlength="5"><br><br> </label>
+            <label>HSC GPA: <input type="text" name="hsc_gpa" required maxlength="5"><br><br> </label>
+            <label>Preferred Department:</label> 
+            <select name="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+                <option value="BBA">BBA</option>
+                <option value="LLB">LLB</option>
+                <option value="English">English</option>
+            </select>
+            <br>
+            <br>
+            <label>Interests:</label>
+            <input type="checkbox" name="interest" value="Gaming"> Programming
+            <input type="checkbox" name="interest" value="Travelling"> Sports
+            <input type="checkbox" name="interest" value="Research"> Research
+            <input type="checkbox" name="interest" value="Arts"> Arts
+        </fieldset>
+
+      
+        <fieldset>
+            <legend>Documents Upload</legend>
+            <label>Upload Certificate: <input type="file" name="certificate" required><br><br> </label>
+            <label>Upload Transcript: <input type="file" name="transcript" required><br><br> </label>
+        </fieldset>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#contact-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid #0056b3;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#contact-widget:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#contact-widget a {
+    color: white;
+    text-decoration: none;
+}
+
+#contact-widget a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding: 20px;
+    height: 2000px;
+}

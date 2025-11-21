@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#about-me {
+    background-color: #dcdbd8;
+    padding: 50px;
+    text-align: center;
+}
+
+#education {
+    background-color: #d6ded3;
+    padding: 50px;
+    text-align: center;
+}
+
+#hobbies {
+    background-color: #2980b9;
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    width: 50%;
+    margin: 30px auto;
+}
+
+#about-me + hr {
+    background-color: black;
+}
+
+#education + hr {
+    background-color: black;
+}

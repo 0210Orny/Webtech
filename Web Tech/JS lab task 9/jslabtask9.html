@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Interactive Portfolio</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+    color:#222;
+    transition:0.3s;
+}
+.dark{
+    background:#111;
+    color:#eee;
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#333;
+    color:white;
+}
+nav a{
+    margin:0 15px;
+    cursor:pointer;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+section{
+    display:none;
+    padding:40px;
+}
+.show{
+    display:block;
+}
+button{
+    padding:8px 15px;
+    cursor:pointer;
+}
+input,textarea{
+    display:block;
+    width:300px;
+    padding:8px;
+    margin:10px 0;
+}
+.error{
+    color:red;
+    font-size:14px;
+}
+.project-box{
+    padding:15px;
+    border:1px solid #ccc;
+    margin-bottom:15px;
+    border-radius:5px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div id="greet"></div>
+    <div>
+        <nav>
+            <a onclick="showSection('about')">About</a>
+            <a onclick="showSection('projects')">Projects</a>
+            <a onclick="showSection('contact')">Contact</a>
+        </nav>
+    </div>
+    <button id="themeBtn">Switch</button>
+</header>
+
+<section id="about" class="show">
+    <h2>About Me</h2>
+    <p>Hello! I am <b>Quart</b>, a passionate web developer and technology enthusiast.</p>
+    <p>I love building interactive websites, working with JavaScript, and learning new tools. My goal is to grow as a software professional and build meaningful projects.</p>
+    <p>Skills: HTML, CSS, JavaScript, C, C++, Java, Python</p>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="project-box">
+        <h3>Project 1: Portfolio Website</h3>
+        <p>A dynamic portfolio with theme switching, navigation, and form validation.</p>
+    </div>
+
+    <div class="project-box">
+        <h3>Project 2: Student Management System</h3>
+        <p>A web app for adding and managing student records using DOM manipulation.</p>
+    </div>
+
+    <div class="project-box">
+        <h3>Project 3: Text Analyzer Tool</h3>
+        <p>Counts words, characters, and reverses input text in real-time.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <div id="nameErr" class="error"></div>
+
+    <input type="text" id="email" placeholder="Your Email">
+    <div id="emailErr" class="error"></div>
+
+    <textarea id="message" placeholder="Your Message"></textarea>
+    <div id="msgErr" class="error"></div>
+
+    <button onclick="validateForm()">Send Message</button>
+    <p id="result"></p>
+</section>
+
+<script>
+let theme=false;
+document.getElementById("themeBtn").onclick=function(){
+    theme=!theme;
+    document.body.classList.toggle("dark");
+};
+
+function greet(){
+    let h=new Date().getHours();
+    let text=h<12?"Good Morning":h<17?"Good Afternoon":"Good Evening";
+    document.getElementById("greet").innerText=text;
+}
+greet();
+
+function showSection(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("show"));
+    document.getElementById(id).classList.add("show");
+}
+
+function validateForm(){
+    let n=document.getElementById("name").value.trim();
+    let e=document.getElementById("email").value.trim();
+    let m=document.getElementById("message").value.trim();
+
+    document.getElementById("nameErr").innerText="";
+    document.getElementById("emailErr").innerText="";
+    document.getElementById("msgErr").innerText="";
+    document.getElementById("result").innerText="";
+
+    let ok=true;
+
+    if(n===""){
+        document.getElementById("nameErr").innerText="Name required";
+        ok=false;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){
+        document.getElementById("emailErr").innerText="Invalid email";
+        ok=false;
+    }
+    if(m.length<10){
+        document.getElementById("msgErr").innerText="Message too short";
+        ok=false;
+    }
+    if(ok){
+        document.getElementById("result").innerText="Message sent successfully!";
+    }
+}
+</script>
+
+</body>
+</html>

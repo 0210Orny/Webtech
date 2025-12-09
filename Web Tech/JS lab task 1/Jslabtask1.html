@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration Form Validation</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 20px;
+    }
+    .container {
+        width: 350px;
+        background: #fff;
+        padding: 20px;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #ccc;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+    #success {
+        color: green;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Student Registration</h2>
+
+    <form id="regForm">
+        <label>Full Name</label>
+        <input type="text" id="name">
+        <p class="error" id="nameError"></p>
+
+        <label>Email</label>
+        <input type="text" id="email">
+        <p class="error" id="emailError"></p>
+
+        <label>Password</label>
+        <input type="password" id="password">
+        <p class="error" id="passError"></p>
+
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword">
+        <p class="error" id="confirmError"></p>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone">
+        <p class="error" id="phoneError"></p>
+
+        <button type="submit">Register</button>
+        <p id="success"></p>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById("regForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();  
+
+       
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        let phone = document.getElementById("phone").value.trim();
+
+       
+        let nameError = document.getElementById("nameError");
+        let emailError = document.getElementById("emailError");
+        let passError = document.getElementById("passError");
+        let confirmError = document.getElementById("confirmError");
+        let phoneError = document.getElementById("phoneError");
+        let success = document.getElementById("success");
+
+
+        nameError.innerText = "";
+        emailError.innerText = "";
+        passError.innerText = "";
+        confirmError.innerText = "";
+        phoneError.innerText = "";
+        success.innerText = "";
+
+        let isValid = true;
+
+    
+        if (name === "") {
+            nameError.innerText = "Full Name is required.";
+            isValid = false;
+        }
+
+       
+        if (!email.includes("@") || !email.includes(".")) {
+            emailError.innerText = "Enter a valid email (must contain @ and .).";
+            isValid = false;
+        }
+
+  
+        if (password.length < 6) {
+            passError.innerText = "Password must be at least 6 characters.";
+            isValid = false;
+        }
+
+        if (password !== confirmPassword) {
+            confirmError.innerText = "Passwords do not match.";
+            isValid = false;
+        }
+
+        
+        if (isNaN(phone) || phone === "") {
+            phoneError.innerText = "Phone number must contain digits only.";
+            isValid = false;
+        }
+
+       
+        if (isValid) {
+            success.innerText = "Registration Successful!";
+        }
+    });
+</script>
+
+</body>
+</html>

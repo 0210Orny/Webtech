@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Registration Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-group{
+            margin-bottom: 15px;
+        }
+        input, select{
+            padding: 8px;
+            width: 250px;
+        }
+        button{
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Smart Registration Form</h2>
+
+    <div class="form-group">
+        <label>User Type:</label><br>
+        <select id="userType" onchange="updateFields()">
+            <option value="">-- Select --</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="rollField" style="display: none;">
+        <label>Roll Number:</label><br>
+        <input type="text" id="rollInput">
+    </div>
+
+    <div class="form-group" id="deptField" style="display: none;">
+        <label>Department:</label><br>
+        <input type="text" id="deptInput">
+    </div>
+
+    <button onclick="enter()">Enter</button>
+
+    <script>
+        function updateFields() {
+            let type = document.getElementById("userType").value;
+            if (type === "student") {
+                document.getElementById("rollField").style.display = "block";
+                document.getElementById("deptField").style.display = "none";
+            } 
+            else if (type === "teacher") {
+                document.getElementById("deptField").style.display = "block";
+                document.getElementById("rollField").style.display = "none";
+            }
+            else {
+                document.getElementById("rollField").style.display = "none";
+                document.getElementById("deptField").style.display = "none";
+            }
+        }
+
+        function enter() {
+            let data = {
+                userType: document.getElementById("userType").value,
+                rollNumber: document.getElementById("rollInput").value,
+                department: document.getElementById("deptInput").value
+            };
+            localStorage.setItem("registrationData", JSON.stringify(data));
+            alert("Data saved successfully!");
+        }
+    </script>
+
+</body>
+</html>

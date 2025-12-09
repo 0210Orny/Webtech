@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editable Student Table</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        input {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Management System</h2>
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="roll" placeholder="Enter Roll">
+    <input type="text" id="dept" placeholder="Enter Department">
+    <button onclick="addStudent()">Add Student</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable"></tbody>
+    </table>
+
+<script>
+function addStudent() {
+    let name = document.getElementById("name").value.trim();
+    let roll = document.getElementById("roll").value.trim();
+    let dept = document.getElementById("dept").value.trim();
+
+   
+    if (name === "" || roll === "" || dept === "") {
+        alert("All fields are required!");
+        return;
+    }
+
+   
+    let table = document.getElementById("studentTable");
+    let row = document.createElement("tr");
+
+   
+    row.innerHTML = `
+        <td>${name}</td>
+        <td>${roll}</td>
+        <td>${dept}</td>
+        <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+    `;
+
+    table.appendChild(row);
+
+   
+    document.getElementById("name").value = "";
+    document.getElementById("roll").value = "";
+    document.getElementById("dept").value = "";
+}
+
+function deleteRow(btn) {
+    btn.parentNode.parentNode.remove();
+}
+</script>
+
+</body>
+</html>
